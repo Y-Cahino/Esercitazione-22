@@ -21,21 +21,39 @@ namespace Corsi_and_Orsi38
                 Console.Clear();
                 Console.WriteLine("Premere uno dei seguenti tasti per selezionare l'operazione desiderata:");
                 Console.WriteLine("0 - Uscita");
-                Console.WriteLine("1 - Inserimento casuale");
-                Console.WriteLine();
-
-
-                //elaborazione
-                Console.Write("Inserire la lunghezza dell'array: ");
-                dim = int.Parse(Console.ReadLine());
-
-                for (int i = 0; i < dim; i++)
+                Console.WriteLine("1 - Inserimento in posizione");
+                Console.WriteLine("2 - Inserimento casuale");
+                scelta2=int.Parse(Console.ReadLine());
+                switch (scelta2)
                 {
-                    Console.Write($"Inserire elemento in posizione {i}: ");
-                    a = int.Parse(Console.ReadLine());
-                    array[i] = a;
+                    case 1:
+                        //elaborazione
+                        Console.Write("Inserire la lunghezza dell'array: ");
+                        dim = int.Parse(Console.ReadLine());
+
+                        for (int i = 0; i < dim; i++)
+                        {
+                            Console.Write("Inserire elemento in posizione {i}: ");
+                            a = int.Parse(Console.ReadLine());
+                            array[i] = a;
+                        }
+                        Thread.Sleep(3000);
+                        break;
+                    case 2:
+                        Console.Write("Inserire numero minimo elementi:");
+                        int min = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Inserire numero massimo elementi:");
+                        int max = Convert.ToInt32(Console.ReadLine());
+                        if()
+                        insert(array,min, max);
+                        Thread.Sleep(3000);
+                        break;
+
                 }
-                Thread.Sleep(1000);
+
+
+
+               ;
             } while (scelta2 != 0);
                 //menù
                 do
@@ -121,14 +139,6 @@ namespace Corsi_and_Orsi38
                                 Console.WriteLine("L'elemento non è stato inserito");
                             }
                             break;
-                    case 7:
-                        Console.Write("Inserire numero minimo elementi:");
-                        int min=Convert.ToInt32(Console.ReadLine());
-                        Console.Write("Inserire numero massimo elementi:");
-                        int max=Convert.ToInt32(Console.ReadLine());
-
-
-
                     case 0:
                             Environment.Exit(0);
                             break;
@@ -229,12 +239,12 @@ namespace Corsi_and_Orsi38
         //funzione di inserimento dato input
         static int insert(int [] array, int min, int max)
         {
-            int insert = 0;
             Random r = new Random();
             for (int i = min; i <= max; i++)
             {
                 array[i]= r.Next(min, max);
             }
+            return 0;
         }
         }
     }
