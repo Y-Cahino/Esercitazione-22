@@ -20,7 +20,7 @@ namespace Corsi_and_Orsi38
             {
                 Console.Clear();
                 Console.WriteLine("Premere uno dei seguenti tasti per selezionare l'operazione desiderata:");
-                Console.WriteLine("0 - Uscita");
+                Console.WriteLine("0 - Passo successivo");
                 Console.WriteLine("1 - Inserimento in posizione");
                 Console.WriteLine("2 - Inserimento casuale");
                 scelta2=int.Parse(Console.ReadLine());
@@ -44,7 +44,7 @@ namespace Corsi_and_Orsi38
                         int min = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Inserire numero massimo elementi:");
                         int max = Convert.ToInt32(Console.ReadLine());
-                        if()
+                        if()    //inserimento insert dato input(?)
                         insert(array,min, max);
                         Thread.Sleep(3000);
                         break;
