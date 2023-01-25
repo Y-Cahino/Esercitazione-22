@@ -114,6 +114,9 @@ namespace Corsi_and_Orsi38
                     case 7:
                         Console.Write("Inserire numero minimo elementi:");
                         int min=Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Inserire numero massimo elementi:");
+                        int max=Convert.ToInt32(Console.ReadLine());
+
 
 
                     case 0:
@@ -213,6 +216,11 @@ namespace Corsi_and_Orsi38
 
                 return ins;
             }
+        //funzione di inserimento dato input
+        static int insert(int [] array, int min, int max)
+        {
+
+        }
         }
     }
 
