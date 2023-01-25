@@ -12,9 +12,18 @@ namespace Corsi_and_Orsi38
             {
                 //dichiarazione variabili
                 int scelta = 0;
+                int scelta2 = 0;
                 int dim = 0;
                 int[] array = new int[100];
                 int a, b;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Premere uno dei seguenti tasti per selezionare l'operazione desiderata:");
+                Console.WriteLine("0 - Uscita");
+                Console.WriteLine("1 - Inserimento casuale");
+                Console.WriteLine();
+
 
                 //elaborazione
                 Console.Write("Inserire la lunghezza dell'array: ");
@@ -26,7 +35,8 @@ namespace Corsi_and_Orsi38
                     a = int.Parse(Console.ReadLine());
                     array[i] = a;
                 }
-
+                Thread.Sleep(1000);
+            } while (scelta2 != 0);
                 //menù
                 do
                 {
@@ -219,7 +229,12 @@ namespace Corsi_and_Orsi38
         //funzione di inserimento dato input
         static int insert(int [] array, int min, int max)
         {
-
+            int insert = 0;
+            Random r = new Random();
+            for (int i = min; i <= max; i++)
+            {
+                array[i]= r.Next(min, max);
+            }
         }
         }
     }
