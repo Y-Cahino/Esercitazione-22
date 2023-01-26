@@ -245,10 +245,11 @@ namespace Corsi_and_Orsi38
             }
             return 0;
         }
+        //funzione di troncamento
         static int tronca(int[] array, int z)
         {
             Array.Resize(ref array, z);
-            return array[z];
+            return 0;
         }
     }
     }
