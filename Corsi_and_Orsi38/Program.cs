@@ -16,8 +16,7 @@ namespace Corsi_and_Orsi38
                 int dim = 0;
                 int[] array = new int[100];
                 int a, b;
-            do
-            {
+            //menù 1
                 Console.Clear();
                 Console.WriteLine("Premere uno dei seguenti tasti per selezionare l'operazione desiderata:");
                 Console.WriteLine("0 - Passo successivo");
@@ -44,17 +43,11 @@ namespace Corsi_and_Orsi38
                         int min = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Inserire numero massimo elementi:");
                         int max = Convert.ToInt32(Console.ReadLine());
-                        if()    //inserimento insert dato input(?)
-                        insert(array,min, max);
+                        insert(array, min, max);    //inserimento insert dato input(?)
                         Thread.Sleep(3000);
                         break;
 
                 }
-
-
-
-               ;
-            } while (scelta2 != 0);
                 //menù
                 do
                 {
