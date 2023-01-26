@@ -15,7 +15,7 @@ namespace Corsi_and_Orsi38
             int scelta2 = 0;
             int dim = 0;
             int[] array = new int[100];
-            int a, b,z;
+            int a, b, z, c;
             //menù 1
             Console.Clear();
             Console.WriteLine("Premere uno dei seguenti tasti per selezionare l'operazione desiderata:");
@@ -138,6 +138,12 @@ namespace Corsi_and_Orsi38
                         z=int.Parse(Console.ReadLine());
                         tronca(array, z);
                         break;
+                    case 8:
+                        Console.WriteLine("Quanti elementi si vuole aggiungere?");
+                        c=int.Parse(Console.ReadLine());
+                        BubbleSort(array, c);
+
+                        break;
                     case 0:
                         Environment.Exit(0);
                         break;
@@ -250,6 +256,22 @@ namespace Corsi_and_Orsi38
         {
             Array.Resize(ref array, z);
             return 0;
+        }
+        //funzione bubble
+        static void BubbleSort(int []array, int c)
+        {
+            int x, y, temp;
+            for (x = 0; x < c - 1; x++)     // ripeti per tutti i numeri
+            {
+                for (y = 0; y < c - 1; y++) // confronta tutte le coppie 
+                                                // (for(y=0; y < tanti-1-x; y++) ciclo per ottimizzazione
+                    if (array[y] > array[y + 1])        // se trovo una coppia da scambiare
+                    {
+                        temp = array[y];
+                        array[y] = array[y + 1];    // scambio
+                        array[y + 1] = temp;
+                    }
+            }
         }
     }
     }
