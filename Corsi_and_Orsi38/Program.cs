@@ -141,7 +141,7 @@ namespace Corsi_and_Orsi38
                     case 8:
                         Console.WriteLine("Quanti elementi si vuole aggiungere?");
                         c=int.Parse(Console.ReadLine());
-                        BubbleSort(array, c);
+                        Quciksort(array, c);
 
                         break;
                     case 0:
@@ -257,20 +257,37 @@ namespace Corsi_and_Orsi38
             Array.Resize(ref array, z);
             return 0;
         }
-        //funzione bubble
-        static void BubbleSort(int []array, int c)
+        void scambio(int a, int b)
         {
-            int x, y, temp;
-            for (x = 0; x < c - 1; x++)     // ripeti per tutti i numeri
+            int temp = a; // Memorizza il valore di a in una variabile temporanea
+            a = b; // Assegna il valore di b a a
+            b = temp; // Assegna il valore temporaneo a b
+        }
+
+        int partizione(ref int[]array, int inf, int sup)
+        {
+            int pivot = array[sup]; // Assegna l'ultimo elemento come pivot
+            int i = inf - 1; // Imposta l'indice i al valore iniziale
+
+            for (int j = inf; j <= sup - 1; j++) // Itera attraverso tutti gli elementi del sottovettore da inf a sup-1
             {
-                for (y = 0; y < c - 1; y++) // confronta tutte le coppie 
-                                                // (for(y=0; y < tanti-1-x; y++) ciclo per ottimizzazione
-                    if (array[y] > array[y + 1])        // se trovo una coppia da scambiare
-                    {
-                        temp = array[y];
-                        array[y] = array[y + 1];    // scambio
-                        array[y + 1] = temp;
-                    }
+                if (array[j] <= pivot) // Se l'elemento corrente è minore o uguale al pivot
+                {
+                    i++; // Incrementa l'indice i
+                    scambio(array[i], array[j]); // Scambia l'elemento corrente con quello all'indice i
+                }
+            }
+            scambio(array[i + 1], array[sup]); // Scambia il pivot con l'elemento all'indice i + 1
+            return (i + 1); // Restituisce l'indice del pivot
+        }
+
+        void QuickSort(ref int []array, int inf, int sup)
+        {
+            if (inf < sup) // Se il sottovettore ha almeno 2 elementi
+            {
+                int p = partizione(ref array, inf, sup); // Chiamata alla funzione di partizione per ottenere l'indice del pivot      
+                QuickSort(ref array, inf, p - 1); // Chiamata ricorsiva sulla prima metà del sottovettore 
+                QuickSort(ref array, p + 1, sup); // Chiamata ricorsiva sulla seconda metà del sottovettore 
             }
         }
     }
